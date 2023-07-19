@@ -428,3 +428,14 @@ export const formatGeocodingQueryStringFromMultipleFields = (fields: unknown[]):
     }
     return queryArray.length === 0 ? undefined : queryArray.join(', ');
 };
+
+/**
+ * Test a string against a regex to see if it is a phone number
+ * @param maybeNumber - String to test.
+ * @returns True of string is a phone number.
+ */
+const isPhoneNumber = (maybeNumber) => {
+    return /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(maybeNumber);
+    // Thanks to https://stackoverflow.com/questions/16699007/regular-expression-to-match-standard-10-digit-phone-number
+}
+export { isPhoneNumber }
